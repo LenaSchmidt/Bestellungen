@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Pizza Bestellungen</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script type="text/javascript" src="js/bestellungen.js"></script>
+</head>
+
+	<body>
+		<div id="content">
+			<!-- Sticky header / half visivble -->
+			<div id="header">
+				<div id="name">
+					<p class="fontBig">Pizza Bestellungen</p>
+				</div>
+				<div>
+					<img id="helpIcon" src="img/info.jpg" alt="Info-Icon">
+				</div>
+				<div>
+					
+				</div>
+			</div>
+					
+			<div id="main">
+				<div class="article">
+					<div>
+						<img id="pizzaImg" src="img/pizza.jpg" alt="Pizza">
+					</div>
+					<form>
+						<div>
+							<div>
+								<p class="fontBig">Pizza<p>
+							</div>
+							<div class="pizzaSelection">
+								<div class="pizzaElement">
+									<div class="pizzaName">
+										<p>1 // Pizza Salami</p>
+									</div>
+									<div class="pizzaPrice">
+										<p>5,50€</p>
+									</div>
+									<div>
+										<input class="pizzaInputType" type="number" id="quantityPizza1" name="quantityPizza1" min="0">
+									</div>
+								</div>
+								<div class="pizzaElement">
+									<div class="pizzaName">
+										<p>2 // Pizza Margherita</p>
+									</div>
+									<div class="pizzaPrice">
+										<p>5,00€</p>
+									</div>
+									<div>
+										<input class="pizzaInputType" type="number" id="quantityPizza2" name="quantityPizza2" min="0">
+									</div>
+								</div>
+								<div class="pizzaElement">
+									<div class="pizzaName">
+										<p>3 // Pizza Thunfisch</p>
+									</div>
+									<div class="pizzaPrice">
+										<p>6,00€</p>
+									</div>
+									<div>
+										<input class="pizzaInputType" type="number" id="quantityPizza3" name="quantityPizza3" min="0">
+									</div>
+								</div>
+								<div class="pizzaElement submit">
+									<div>
+										<input type="text" id="surname" placeholder="Ihr Nachname" required="required">
+									</div>
+									<div>
+										<input type="text" id="adress" placeholder="Ihre Adresse" required="required">
+									</div>
+									<div>
+										<input id="submitOrder" type="submit" value="Bestellen">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

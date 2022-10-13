@@ -16,11 +16,12 @@
 	height:25px;
 	width:25px;
 	margin:20px;
+	cursor: pointer;
 	}
 
 body{
-	background-color:gray;
-	
+	background: url("/img/ofen.jpg") 0% 50% no-repeat;
+	background-size: 120%;	
 }
 #content{
 	height:auto;
@@ -56,4 +57,45 @@ body{
 	.pizzaElement.submit > div {
 		margin:10px;
 	}
+#HelpPopup{
+	visibility: hidden;
+}
 
+
+.swal-text {
+	display: flexbox;
+	text-align: left;
+	font-size: 20px;
+  }
+
+.pizzaInputType{
+	margin: auto;
+	width: 40px;
+	height: 30px;
+	float: right;
+	font-size: 15px;
+	border: 1px solid;
+}
+
+.inputField{
+	border: 2px solid;
+	border-radius: 5px;
+	height: 20px;
+}
+
+#submitOrder{
+	border-radius: 5px;
+	width: 80px;
+	height: 27px;
+	cursor: pointer;
+	background-color: #808080;
+	color: white;
+}
+
+#submitOrder:hover{
+	border-radius: 5px;
+	width: 80px;
+	cursor: pointer;
+	background-color: #cccccc;
+	color: black;
+}

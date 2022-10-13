@@ -6,7 +6,6 @@
 
 	<title>Pizza Bestellungen</title>
 	<link rel="stylesheet" href="css/style.css"/>
-	<script type="text/javascript" src="js/bestellungen.js"></script>
 </head>
 
 	<body>
@@ -42,8 +41,8 @@
 									<div class="pizzaPrice">
 										<p>5,50€</p>
 									</div>
-									<div>
-										<input class="pizzaInputType" type="number" id="quantityPizza1" name="quantityPizza1" min="0">
+									<div class="pizzaInputContainer">
+										<input class="pizzaInputType" type="number" id="quantityPizza1" name="quantityPizza1" min="1">
 									</div>
 								</div>
 								<div class="pizzaElement">
@@ -53,8 +52,8 @@
 									<div class="pizzaPrice">
 										<p>5,00€</p>
 									</div>
-									<div>
-										<input class="pizzaInputType" type="number" id="quantityPizza2" name="quantityPizza2" min="0">
+									<div class="pizzaInputContainer">
+										<input class="pizzaInputType" type="number" id="quantityPizza2" name="quantityPizza2" min="1">
 									</div>
 								</div>
 								<div class="pizzaElement">
@@ -64,19 +63,19 @@
 									<div class="pizzaPrice">
 										<p>6,00€</p>
 									</div>
-									<div>
-										<input class="pizzaInputType" type="number" id="quantityPizza3" name="quantityPizza3" min="0">
+									<div class="pizzaInputContainer">
+										<input class="pizzaInputType" type="number" id="quantityPizza3" name="quantityPizza3" min="1">
 									</div>
 								</div>
 								<div class="pizzaElement submit">
 									<div>
-										<input type="text" id="surname" placeholder="Ihr Nachname" required="required">
+										<input type="text" id="surname" placeholder="Ihr Nachname" class="inputField">
 									</div>
 									<div>
-										<input type="text" id="adress" placeholder="Ihre Adresse" required="required">
+										<input type="text" id="address" placeholder="Ihre Adresse" class="inputField">
 									</div>
 									<div>
-										<input id="submitOrder" type="submit" value="Bestellen">
+										<button type="button" id="submitOrder">Bestellen</button>
 									</div>
 								</div>
 							</div>
@@ -86,4 +85,7 @@
 			</div>
 		</div>
 	</body>
+
+	<script src="/js/bestellungen.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>

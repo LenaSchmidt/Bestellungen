@@ -24,7 +24,6 @@ body{
 	background-size: 120%;	
 }
 #content{
-	height:auto;
 	width:50%;
 	background:white;
 	margin-left:auto;
@@ -37,7 +36,7 @@ body{
 	max-height:100%;
 }
 .fontBig{
-	font-size:30px;
+	font-size:25px;
 	margin-left: 20px;
 }
 .pizzaElement{
@@ -99,3 +98,56 @@ body{
 	background-color: #cccccc;
 	color: black;
 }
+
+.pizzaName{
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+#bestaetigung_titel{
+	text-align: center;
+	margin-left: 0px !important;
+}
+
+
+#order_list {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 40%;
+	margin: auto;
+	text-align: center;
+  }
+  
+  #order_list td, #order_list th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  }
+  
+  #order_list tr:hover {background-color: #ddd;}
+  
+  #order_list th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #6699cc;
+	color: white;
+  }
+
+
+  #timer{
+	  text-align:center;
+	  font-size: 19px;
+	  font-weight: bold;
+	  color: #6699cc;
+  }
+
+  #Progress {
+	width: 100%;
+	background-color: #ddd;
+  }
+  
+  #Bar {
+	width: 1%;
+	height: 30px;
+	background-color: #6699cc;
+  }

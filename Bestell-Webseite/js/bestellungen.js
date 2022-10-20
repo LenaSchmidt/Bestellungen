@@ -1,3 +1,5 @@
+//cookies löschen 
+localStorage.clear()
 
 //Bestellbestätigung-----
 // Wenn Submit gedrückt wird soll Swal erscheinen
@@ -5,27 +7,39 @@ document.getElementById("submitOrder").onclick = function() {checkOrder()};
 
 //Funktion zum anzeigen der Bestellbestätigung
 function submitOrder() {
-  swal({
-    title: "Bestellung abgeschlossen",
-    text: "Ihre Bestellung ist bei uns eingegangen und wird nun bearbeitet.",
+
+
+let Anzahl1 = document.getElementById("quantityPizza1").value
+let Anzahl2 = document.getElementById("quantityPizza2").value
+let Anzahl3 = document.getElementById("quantityPizza3").value
+
+    //Abspeichern der Bestellung als Cookies 
+    if(Anzahl1 > 0){
+        localStorage.setItem("Salami", Anzahl1)
+    }
+
+    if(Anzahl2 > 0){
+        localStorage.setItem("Margherita", Anzahl2)
+    }
+
+    if(Anzahl3 > 0){
+        localStorage.setItem("Thunfisch", Anzahl3)
+    }
+
+
+//Bestätigungs-PopUp abfeuern
+  swal.fire({
+    title: "Bestellung vollst&auml;ndig",
+    showDenyButton: true,
+    denyButtonText: 'Bestellung bearbeiten',
+    confirmButtonText: `Bestellung abschicken`,
+    text: "Ihre Bestellung wird nun an uns weitergegeben und von uns angenommen",
     icon: "success",
-    buttons:{
-        cancel: {
-          text: "Bestellung ändern",
-          value: null,
-          visible: true,
-          className: "",
-          closeModal: true,
-        },
-        confirm: {
-          text: "Weiter",
-          value: true,
-          visible: true,
-          className: "",
-          closeModal: true
-        }
-      },
-  });
+  }).then((result)=>{
+    if (result.isConfirmed){
+        window.location = "http://127.0.0.1:5500/Bestaetigung.html";
+    }
+});
 }
 
 
@@ -39,7 +53,6 @@ function checkOrder() {
     //prüfen ob Adresse angegeben wurde
     if(address.value===""){
         error = true
-        console.log("Adresse fehlt")
         address.setAttribute("style", "border:4px solid red")
     }
     else{
@@ -49,7 +62,6 @@ function checkOrder() {
     //prüfen ob Nachname angegeben wurde
     if(surname.value===""){
         error = true
-        console.log("Name fehlt")
         surname.setAttribute("style", "border:4px solid red")
     }
     else{
@@ -74,10 +86,20 @@ function checkOrder() {
         Anzahl2.setAttribute("style", "border:1px solid")
         Anzahl3.setAttribute("style", "border:1px solid")
     }
+
+   var adresse = address.value.replace(" ", "")
+   var last_digit_address = adresse.slice(-1)
+
+    if(isNaN(last_digit_address)){
+        error = true
+        address.setAttribute("style", "border:4px solid red")
+        console.log("Fehler Hasunummer")
+    }
+
     
     //wenn Bestellung fehlerhaft
     if(error === true){
-        swal({
+        swal.fire({
             title: "Bestellung fehlgeschlagen",
             text: "Bitte füllen Sie die gekennzeichneten Felder aus.",
             icon: "error",
@@ -91,7 +113,7 @@ function checkOrder() {
                 },
               },
           });
-    }
+        }
     //wenn Bestellung in Ordnung
     else{
         submitOrder()
@@ -106,12 +128,19 @@ function checkOrder() {
 document.getElementById("helpIcon").onclick = function() {showHelp()};
 
 function showHelp(){
-    swal({
-        text: "Bitte geben Sie die gewünschte Menge der jeweiligen Gerichte ein und drücken sie dann den Bestellbutton \n\n Die Felder 'Name' und 'Adresse' sind Erforderlich, ohnen die Angabe dieser können wir Ihre BEstellung nicht entgegen nehmen. \n\n Es kann zu Lieferverspätungen kommen, bitte entschuldigen Sie dies. \n \n \n Bei weiteren Fragen: 03050/69420187",
+    swal.fire({
+        text: "Bitte geben Sie die gewünschte Menge der jeweiligen Gerichte ein und drücken sie dann den Bestellbutton \n\n Die Felder 'Name' und 'Adresse' sind Erforderlich, ohnen die Angabe dieser können wir Ihre Bestellung nicht entgegen nehmen. \n\n Es kann zu Lieferverspätungen kommen, bitte entschuldigen Sie dies. \n \n \n Bei weiteren Fragen: 03050/69420187",
         icon: "info",
-        buttons:{
-            
-        },
     });
 }
+
+document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        alert("pressed Enter")
+        event.preventDefault();
+        document.getElementById("submitOrder").click();
+    }
+});
 //----Hilfefenster Ende
+
+//weiterleiten zur nächsten Seite nach Swal

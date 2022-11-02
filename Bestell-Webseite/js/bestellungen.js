@@ -37,7 +37,7 @@ let Anzahl3 = document.getElementById("quantityPizza3").value
     icon: "success",
   }).then((result)=>{
     if (result.isConfirmed){
-        window.location = "http://127.0.0.1:5500/Bestaetigung.html";
+        window.location = "./bestaetigung.html";
     }
 });
 }

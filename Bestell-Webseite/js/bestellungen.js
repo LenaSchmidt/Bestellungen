@@ -9,9 +9,9 @@ document.getElementById("submitOrder").onclick = function() {checkOrder()};
 function submitOrder() {
 
 
-let Anzahl1 = $('#quantityPizza1').value 
-let Anzahl2 = $('#quantityPizza2').value 
-let Anzahl3 = $('#quantityPizza3').value 
+let Anzahl1 = document.getElementById("quantityPizza1").value 
+let Anzahl2 = document.getElementById("quantityPizza2").value 
+let Anzahl3 = document.getElementById("quantityPizza3").value 
 
     //Abspeichern der Bestellung als Cookies 
     if(Anzahl1 > 0){
@@ -46,8 +46,8 @@ let Anzahl3 = $('#quantityPizza3').value
 //Prüfen ob Bestellung vollständig ist 
 
 function checkOrder() {
-    let address = $('#address').value
-    let surname = $('#surname').value
+    let address = document.getElementById("address")
+    let surname = document.getElementById("surname") 
     error = false
 
     //prüfen ob Adresse angegeben wurde
@@ -70,9 +70,9 @@ function checkOrder() {
 
 
     //prüfen ob Anzahl angegeben wurde
-    let Anzahl1 = $('#quantityPizza1').value 
-    let Anzahl2 = $('#quantityPizza2').value 
-    let Anzahl3 = $('#quantityPizza3').value 
+    let Anzahl1 = document.getElementById("quantityPizza1")
+    let Anzahl2 = document.getElementById("quantityPizza2")
+    let Anzahl3 = document.getElementById("quantityPizza3")
 
     if((Anzahl1.value === "") && (Anzahl2.value ==="") && (Anzahl3.value ==="")){
         error = true

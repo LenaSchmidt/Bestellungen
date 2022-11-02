@@ -20,7 +20,7 @@
 	}
 
 body{
-	background: url("/img/ofen.jpg") 0% 50% no-repeat;
+	background: url("../img/ofen.jpg") 0% 50% no-repeat;
 	background-size: 120%;	
 }
 #content{

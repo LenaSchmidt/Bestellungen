@@ -51,7 +51,7 @@ function checkOrder() {
     error = false
 
     //validation of address
-    if(!/^[?a-zA-Z]+\ [0-9]{3}$/.test(address.value)){
+    if(!/^[?a-zA-Z]+\ [0-9]{1,3}$/.test(address.value)){
         error = true
         address.setAttribute("style", "border:4px solid red")
     }
@@ -93,7 +93,7 @@ function checkOrder() {
     }
     
     //if any errors in the order occured
-    if(!error){
+    if(error){
         swal.fire({
             title: "Bestellung fehlgeschlagen",
             text: "Bitte füllen Sie die gekennzeichneten Felder aus.",

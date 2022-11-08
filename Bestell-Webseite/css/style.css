@@ -20,11 +20,11 @@
 	cursor: pointer;
 	}
 
-body{
+#body{
 	background: url("../img/ofen.jpg") 0% 50% no-repeat;
 	background-size: cover;	
 	margin:0;
-	height: 100vh;
+	height: 100vh!important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,13 +70,6 @@ body{
 	visibility: hidden;
 }
 
-
-.swal-text {
-	display: flexbox;
-	text-align: left;
-	font-size: 20px;
-  }
-
 .pizzaInputType{
 	margin: auto;
 	width: 40px;
@@ -103,7 +96,6 @@ body{
 
 #submitOrder:hover{
 	border-radius: 5px;
-	width: 80px;
 	cursor: pointer;
 	background-color: #cccccc;
 	color: black;

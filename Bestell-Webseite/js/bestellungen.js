@@ -50,8 +50,8 @@ function checkOrder() {
     let surname = document.getElementById("surname") 
     error = false
 
-    //prüfen ob Adresse angegeben wurde
-    if(address.value===""){
+    //validation of address
+    if(!/^[?a-zA-Z]+\ [0-9]{1,3}$/.test(address.value)){
         error = true
         address.setAttribute("style", "border:4px solid red")
     }
@@ -59,8 +59,8 @@ function checkOrder() {
         address.setAttribute("style", "border:2px solid")
     }
 
-    //prüfen ob Nachname angegeben wurde
-    if(surname.value===""){
+    //validation of surname 
+    if(!/^[?a-zA-Z]+$/.test(surname.value)){
         error = true
         surname.setAttribute("style", "border:4px solid red")
     }
@@ -70,6 +70,11 @@ function checkOrder() {
 
 
     //prüfen ob Anzahl angegeben wurde
+    let pizzaInputs = document.getElementsByClassName("pizzaInputType")
+    for(let i = 0; i< pizzaInputs.length;i++){
+
+    }
+
     let Anzahl1 = document.getElementById("quantityPizza1")
     let Anzahl2 = document.getElementById("quantityPizza2")
     let Anzahl3 = document.getElementById("quantityPizza3")
@@ -86,19 +91,9 @@ function checkOrder() {
         Anzahl2.setAttribute("style", "border:1px solid")
         Anzahl3.setAttribute("style", "border:1px solid")
     }
-
-   var adresse = address.value.replace(" ", "")
-   var last_digit_address = adresse.slice(-1)
-
-    if(isNaN(last_digit_address)){
-        error = true
-        address.setAttribute("style", "border:4px solid red")
-        console.log("Fehler Hasunummer")
-    }
-
     
-    //wenn Bestellung fehlerhaft
-    if(error === true){
+    //if any errors in the order occured
+    if(error){
         swal.fire({
             title: "Bestellung fehlgeschlagen",
             text: "Bitte füllen Sie die gekennzeichneten Felder aus.",

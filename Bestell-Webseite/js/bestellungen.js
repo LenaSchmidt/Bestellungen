@@ -51,7 +51,7 @@ function checkOrder() {
     error = false
 
     //prüfen ob Adresse angegeben wurde
-    if(address.value===""){
+    if(!/^[?a-zA-Z]+\ [0-9]{3}$/.test(address.value)){
         error = true
         address.setAttribute("style", "border:4px solid red")
     }
@@ -60,7 +60,7 @@ function checkOrder() {
     }
 
     //prüfen ob Nachname angegeben wurde
-    if(surname.value===""){
+    if(!/^[?a-zA-Z]+$/.test(surname.value)){
         error = true
         surname.setAttribute("style", "border:4px solid red")
     }
@@ -73,7 +73,7 @@ function checkOrder() {
     let Anzahl1 = document.getElementById("quantityPizza1")
     let Anzahl2 = document.getElementById("quantityPizza2")
     let Anzahl3 = document.getElementById("quantityPizza3")
-
+    
     if((Anzahl1.value === "") && (Anzahl2.value ==="") && (Anzahl3.value ==="")){
         error = true
 
@@ -86,18 +86,8 @@ function checkOrder() {
         Anzahl2.setAttribute("style", "border:1px solid")
         Anzahl3.setAttribute("style", "border:1px solid")
     }
-
-   var adresse = address.value.replace(" ", "")
-   var last_digit_address = adresse.slice(-1)
-
-    if(isNaN(last_digit_address)){
-        error = true
-        address.setAttribute("style", "border:4px solid red")
-        console.log("Fehler Hasunummer")
-    }
-
     
-    //wenn Bestellung fehlerhaft
+    //if any errors in the order occured
     if(error === true){
         swal.fire({
             title: "Bestellung fehlgeschlagen",

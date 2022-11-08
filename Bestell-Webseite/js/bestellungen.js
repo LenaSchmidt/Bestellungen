@@ -48,20 +48,20 @@ let Anzahl3 = document.getElementById("quantityPizza3").value
 function checkOrder() {
     let address = document.getElementById("address")
     let surname = document.getElementById("surname") 
-    error = false
+    let valid = true;
 
-    //prüfen ob Adresse angegeben wurde
-    if(!/^[?a-zA-Z]+\ [0-9]{3}$/.test(address.value)){
-        error = true
+    //validation of address
+    if(!/^[?a-zA-Z]+\ [0-9]{1,3}$/.test(address.value)){
+        valid = false
         address.setAttribute("style", "border:4px solid red")
     }
     else{
         address.setAttribute("style", "border:2px solid")
     }
 
-    //prüfen ob Nachname angegeben wurde
+    //validation of surname 
     if(!/^[?a-zA-Z]+$/.test(surname.value)){
-        error = true
+        valid = false;
         surname.setAttribute("style", "border:4px solid red")
     }
     else{
@@ -70,25 +70,37 @@ function checkOrder() {
 
 
     //prüfen ob Anzahl angegeben wurde
-    let Anzahl1 = document.getElementById("quantityPizza1")
-    let Anzahl2 = document.getElementById("quantityPizza2")
-    let Anzahl3 = document.getElementById("quantityPizza3")
-    
-    if((Anzahl1.value === "") && (Anzahl2.value ==="") && (Anzahl3.value ==="")){
-        error = true
+    let pizzaInputs = document.getElementsByClassName("pizzaInputType")
+    for(let i = 0; i< pizzaInputs.length;i++){
+        if(!/^[0-9]+$/.test(pizzaInputs[i].value) && pizzaInputs[i].value.length > 0){
+            valid = false;
+            pizzaInputs[i].setAttribute("style", "border:4px solid red")
+        }
+        else if
+        {}
+        else 
+            pizzaInputs[i].setAttribute("style", "border:1px solid")
+    }
 
-        Anzahl1.setAttribute("style", "border:4px solid red")
-        Anzahl2.setAttribute("style", "border:4px solid red")
-        Anzahl3.setAttribute("style", "border:4px solid red")
-    }
-    else{
-        Anzahl1.setAttribute("style", "border:1px solid")
-        Anzahl2.setAttribute("style", "border:1px solid")
-        Anzahl3.setAttribute("style", "border:1px solid")
-    }
+    // let Anzahl1 = document.getElementById("quantityPizza1")
+    // let Anzahl2 = document.getElementById("quantityPizza2")
+    // let Anzahl3 = document.getElementById("quantityPizza3")
+
+    // if((Anzahl1.value === "") && (Anzahl2.value ==="") && (Anzahl3.value ==="")){
+    //     error = true
+
+    //     Anzahl1.setAttribute("style", "border:4px solid red")
+    //     Anzahl2.setAttribute("style", "border:4px solid red")
+    //     Anzahl3.setAttribute("style", "border:4px solid red")
+    // }
+    // else{
+    //     Anzahl1.setAttribute("style", "border:1px solid")
+    //     Anzahl2.setAttribute("style", "border:1px solid")
+    //     Anzahl3.setAttribute("style", "border:1px solid")
+    // }
     
     //if any errors in the order occured
-    if(error === true){
+    if(!valid){
         swal.fire({
             title: "Bestellung fehlgeschlagen",
             text: "Bitte füllen Sie die gekennzeichneten Felder aus.",

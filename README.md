@@ -15,7 +15,7 @@ Requirements for the software and other tools to build, test and push
 
 ## Authors
 
-  - **Keno Schoon** - 
-  - **Lena Schmidt** - 
-  - **Niklas Kerklaan** - 
+  - **Keno Schoon** 
+  - **Lena Schmidt** 
+  - **Niklas Kerklaan** 
 
